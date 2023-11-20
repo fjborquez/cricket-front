@@ -7,7 +7,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PanelsComponent } from './panels/panels.component';
 import { PanelComponent } from './panel/panel.component';
-import { AgGridModule } from 'ag-grid-angular';
 import { ChartComponent } from './chart/chart.component';
 
 @NgModule({
@@ -20,7 +19,6 @@ import { ChartComponent } from './chart/chart.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AgGridModule,
     HttpClientModule,
     NgChartsModule
   ],
