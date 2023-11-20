@@ -1,0 +1,22 @@
+<h1>Crecimiento del uso de tarjetas de credito en Brasil</h1>
+<p>Graficos que permiten entender y proyectar el crecimiento del uso de tarjetas de credito en Brasil</p>
+
+<div>
+  <select>
+    <option>Seleccionar</option>
+    <option>Crecimiento poblacional de Brasil</option>
+    <option>Cantidad de tarjetas de credito en Brasil</option>
+  </select>
+</div>
+
+<div>
+  <button (click)="add()">Agregar</button>
+</div>
+
+
+<div style="white-space: nowrap;">
+  <div style="display: inline-block;" *ngFor="let chart of charts;">
+    <app-chart></app-chart>
+    <button (click)="quitar()">Quitar</button>
+  </div>
+</div>
