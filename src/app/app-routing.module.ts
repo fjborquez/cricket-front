@@ -5,7 +5,7 @@ import { PanelComponent } from './panel/panel.component';
 
 const routes: Routes = [
   {path: 'panels', component: PanelsComponent},
-  {path: 'panels/1', component: PanelComponent},
+  {path: 'panels/:id', component: PanelComponent},
 ];
 
 @NgModule({

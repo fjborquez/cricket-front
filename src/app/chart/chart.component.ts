@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
+import { SerieService } from '../serie.service';
+import { BaseChartDirective } from 'ng2-charts';
 
 @Component({
   selector: 'app-chart',
@@ -7,20 +9,16 @@ import { ChartConfiguration, ChartOptions } from 'chart.js';
   styleUrls: ['./chart.component.scss']
 })
 export class ChartComponent implements OnInit {
+  @Input() serie: any;
+  @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  ser: any
+  fuentes: any = []
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
-    labels: [
-      'January',
-      'February',
-      'March',
-      'April',
-      'May',
-      'June',
-      'July'
-    ],
+    labels: [],
     datasets: [
       {
-        data: [ 65, 59, 80, 81, 56, 55, 40 ],
+        data: [],
         label: 'Series A',
         fill: true,
         tension: 0.5,
@@ -34,9 +32,20 @@ export class ChartComponent implements OnInit {
   };
   public lineChartLegend = true;
 
-  constructor() { }
+  constructor(private serieService: SerieService) { }
 
   ngOnInit(): void {
+    this.serieService.getSerie(this.serie.id).subscribe(response => {
+      this.ser = response
+
+      this.ser.datos.forEach((element: any) => {
+        this.lineChartData?.labels?.push(element.clave);
+        this.lineChartData.datasets[0].data.push(element.valor);
+        this.fuentes.push(element.fuente);
+      })
+      this.chart?.chart?.update();
+      this.fuentes = [...new Set(this.fuentes)]
+    });
   }
 
 }

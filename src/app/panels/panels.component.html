@@ -1,15 +1,7 @@
 <h1>Mis Paneles</h1>
 <ul>
-  <li>
-    <a routerLink="1">Crecimiento del uso de tarjetas de credito en Brasil</a>
-    <p>Graficos que permiten entender y proyectar el crecimiento del uso de tarjetas de credito en Brasil</p>
-  </li>
-  <li>
-    <a routerLink="1">Repercuciones de la elección presidencial en Argentina</a>
-    <p>Indicadores que permiten entender el resultado de la elección presidencial en Argentina</p>
-  </li>
-  <li>
-    <a routerLink="1">Patrones de consumo en el retail en Estados Unidos en navidad</a>
-    <p>Una visión por estados sobre los patrones de compras navideñas</p>
+  <li *ngFor="let panel of paneles;">
+    <a routerLink="{{ panel.id }}">{{ panel.nombre }}</a>
+    <p>{{ panel.descripcion }}</p>
   </li>
 </ul>

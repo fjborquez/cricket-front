@@ -1,22 +1,21 @@
-<h1>Crecimiento del uso de tarjetas de credito en Brasil</h1>
-<p>Graficos que permiten entender y proyectar el crecimiento del uso de tarjetas de credito en Brasil</p>
+<h1>{{ panel?.nombre }}</h1>
+<p>{{ panel?.descripcion }}</p>
 
 <div>
   <select>
     <option>Seleccionar</option>
-    <option>Crecimiento poblacional de Brasil</option>
-    <option>Cantidad de tarjetas de credito en Brasil</option>
+    <option *ngFor="let serie of series">{{ serie.nombre }}</option>
   </select>
 </div>
 
 <div>
-  <button (click)="add()">Agregar</button>
+  <button (click)="addChart()">Agregar</button>
 </div>
 
 
 <div style="white-space: nowrap;">
-  <div style="display: inline-block;" *ngFor="let chart of charts;">
-    <app-chart></app-chart>
-    <button (click)="quitar()">Quitar</button>
+  <div style="display: inline-block;" *ngFor="let serie of panel?.series;">
+    <app-chart [serie]="serie"></app-chart>
+    <button (click)="removeChart()">Quitar</button>
   </div>
 </div>

@@ -1,4 +1,7 @@
+import { SerieService } from './../serie.service';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PanelService } from '../panel.service';
 
 @Component({
   selector: 'app-panel',
@@ -6,20 +9,26 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
+  id: string | null = null;
+  panel: any;
+  series: any = [];
 
-  constructor() { }
-
-  charts = [1]
+  constructor(private route: ActivatedRoute, private panelService: PanelService, private serieService: SerieService) { }
 
   ngOnInit(): void {
+    this.id = this.route.snapshot.paramMap.get('id')
+    this.panelService.getPanel(Number(this.id)).subscribe(data => {
+      this.panel = data;
+    });
+    this.serieService.getList().subscribe(response => {
+      this.series = response;
+    });
   }
 
-  public add(): void {
-    this.charts.push(1)
+  public addChart(): void {
   }
 
-  public quitar(): void {
-    this.charts.pop()
+  public removeChart(): void {
   }
 
 }
