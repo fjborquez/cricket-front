@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class SerieService {
 
-  private url = 'http://api.grayson.fborquez.cl/api';
+  private url = 'https://api.grayson.fborquez.cl/api';
 
   constructor(private http: HttpClient) { }
 
