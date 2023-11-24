@@ -2,9 +2,9 @@
 <p>{{ panel?.descripcion }}</p>
 
 <div>
-  <select>
+  <select (change)="changeSelectedSerie($event)">
     <option>Seleccionar</option>
-    <option *ngFor="let serie of series">{{ serie.nombre }}</option>
+    <option *ngFor="let serie of series" [value]="serie.id">{{ serie.nombre }}</option>
   </select>
 </div>
 
@@ -16,6 +16,6 @@
 <div style="white-space: nowrap;">
   <div style="display: inline-block;" *ngFor="let serie of panel?.series;">
     <app-chart [serie]="serie"></app-chart>
-    <button (click)="removeChart()">Quitar</button>
+    <button (click)="removeChart(serie)">Quitar</button>
   </div>
 </div>

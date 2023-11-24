@@ -19,7 +19,7 @@ export class ChartComponent implements OnInit {
     datasets: [
       {
         data: [],
-        label: 'Series A',
+        label: '',
         fill: true,
         tension: 0.5,
         borderColor: 'black',
@@ -43,6 +43,8 @@ export class ChartComponent implements OnInit {
         this.lineChartData.datasets[0].data.push(element.valor);
         this.fuentes.push(element.fuente);
       })
+
+
       this.chart?.chart?.update();
       this.fuentes = [...new Set(this.fuentes)]
     });
