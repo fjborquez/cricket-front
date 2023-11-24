@@ -6,8 +6,7 @@ import { HttpClient } from  '@angular/common/http';
 })
 export class PanelService {
 
-  //private url = 'https://api.grayson.fborquez.cl/api';
-  private url = 'http://grayson-api.test/api';
+  private url = 'https://api.grayson.fborquez.cl/api';
 
   constructor(private http: HttpClient) { }
 
