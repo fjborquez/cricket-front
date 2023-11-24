@@ -20,23 +20,27 @@ export class PanelComponent implements OnInit {
     this.id = this.route.snapshot.paramMap.get('id')
     this.panelService.getPanel(Number(this.id)).subscribe(data => {
       this.panel = data;
-    });
-    this.serieService.getList().subscribe((response: any) => {
-      this.series = response.filter((serie: any) => {
-        return !this.panel.series.map((serie: any) => serie.id).includes(serie.id)
+      this.serieService.getList().subscribe((response: any) => {
+        this.series = response.filter((serie: any) => {
+          return !this.panel.series.map((serie: any) => serie.id).includes(serie.id)
+        });
       });
     });
   }
 
   public addChart(): void {
-    this.panel.series.push(this.selectedSerie);
-    this.series = this.series.filter((checkedSerie: any) => checkedSerie.id !== this.selectedSerie.id);
-    this.selectedSerie = null;
+    this.panelService.addSerie(Number(this.id), this.selectedSerie.id).subscribe(_ => {
+      this.panel.series.push(this.selectedSerie);
+      this.series = this.series.filter((checkedSerie: any) => checkedSerie.id !== this.selectedSerie.id);
+      this.selectedSerie = null;
+    });
   }
 
   public removeChart(serie: any): void {
-    this.series.push(serie);
-    this.panel.series = this.panel.series.filter((checkedSerie: any) => checkedSerie.id !== serie.id);
+    this.panelService.removeSerie(Number(this.id), serie.id).subscribe(_ => {
+      this.series.push(serie);
+      this.panel.series = this.panel.series.filter((checkedSerie: any) => checkedSerie.id !== serie.id);
+    });
   }
 
   public changeSelectedSerie(event: any): void {

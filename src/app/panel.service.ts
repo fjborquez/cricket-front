@@ -6,7 +6,8 @@ import { HttpClient } from  '@angular/common/http';
 })
 export class PanelService {
 
-  private url = 'https://api.grayson.fborquez.cl/api';
+  //private url = 'https://api.grayson.fborquez.cl/api';
+  private url = 'http://grayson-api.test/api';
 
   constructor(private http: HttpClient) { }
 
@@ -16,5 +17,13 @@ export class PanelService {
 
   getPanel(id: number) {
     return this.http.get(this.url + '/paneles/' + id);
+  }
+
+  addSerie(panelId: number, serieId: number) {
+    return this.http.put(this.url + '/paneles/' + panelId + '/series/' + serieId, {});
+  }
+
+  removeSerie(panelId: number, serieId: number) {
+    return this.http.delete(this.url + '/paneles/' + panelId + '/series/' + serieId);
   }
 }
