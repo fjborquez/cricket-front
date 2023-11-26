@@ -2,10 +2,14 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PanelsComponent } from './panels/panels.component';
 import { PanelComponent } from './panel/panel.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
-  {path: 'panels', component: PanelsComponent},
-  {path: 'panels/:id', component: PanelComponent},
+  {path: '', redirectTo: '/login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent},
+  {path: 'paneles', component: PanelsComponent, canActivate: [AuthGuardService]},
+  {path: 'paneles/:id', component: PanelComponent, canActivate: [AuthGuardService]},
 ];
 
 @NgModule({
