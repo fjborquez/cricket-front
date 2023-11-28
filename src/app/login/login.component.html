@@ -1,12 +1,15 @@
-<h1>Sesión</h1>
-<div>
+<div class="login-container">
   <form #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)" >
-    <label for="email">Email</label>
-    <input type="text" name="email" id="email" ngModel />
-    <br/>
-    <label for="password">Contraseña</label>
-    <input type="password" name="password" id="password" ngModel />
-    <br/>
-    <button type="submit">Entrar</button>
+    <div class="login-components">
+      <label for="email">Email</label>
+      <input type="text" name="email" id="email" ngModel />
+    </div>
+    <div class="login-components">
+      <label for="password">Contraseña</label>
+      <input type="password" name="password" id="password" ngModel />
+    </div>
+    <div class="login-components">
+      <button type="submit">Entrar</button>
+    </div>
   </form>
 </div>

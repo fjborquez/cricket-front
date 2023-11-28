@@ -1,2 +1,20 @@
-<a routerLink="/panels">Paneles</a>
-<router-outlet></router-outlet>
+<div>
+  <p>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>Grayson</span>
+        <span class="example-spacer"></span>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+        <span>{{ newTitle }}</span>
+        <span class="example-spacer"></span>
+        <button (click)="volver()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </p>
+</div>
+<div>
+  <router-outlet></router-outlet>
+</div>

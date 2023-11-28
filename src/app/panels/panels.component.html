@@ -1,7 +1,15 @@
-<h1>Mis Paneles</h1>
-<ul>
-  <li *ngFor="let panel of paneles;">
-    <a routerLink="{{ panel.id }}">{{ panel.nombre }}</a>
-    <p>{{ panel.descripcion }}</p>
-  </li>
-</ul>
+<div *ngFor="let panel of paneles;" class="paneles-container">
+  <div class="paneles">
+    <mat-list>
+      <mat-list-item >
+        <mat-icon mat-list-icon>folder</mat-icon>
+        <div mat-line>
+          <a routerLink="{{ panel.id }}">{{ panel.nombre }}</a>
+        </div>
+        <div mat-line>
+          {{ panel.descripcion }}
+        </div>
+      </mat-list-item>
+    </mat-list>
+  </div>
+</div>

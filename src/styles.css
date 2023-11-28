@@ -1,1 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.charts-selector-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.charts-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 3;
+  justify-content: space-around;
+}
+
+.charts {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.login-components {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.paneles-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 4;
+}
+
+.paneles {
+
+}
+
+.example-spacer {
+  flex: 1 1 auto;
+}

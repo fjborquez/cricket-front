@@ -2,6 +2,7 @@ import { SerieService } from './../serie.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PanelService } from '../panel.service';
+import { TitleService } from '../title.service';
 
 @Component({
   selector: 'app-panel',
@@ -14,11 +15,14 @@ export class PanelComponent implements OnInit {
   series: any = [];
   selectedSerie: any = null;
 
-  constructor(private route: ActivatedRoute, private panelService: PanelService, private serieService: SerieService) { }
+  constructor(private route: ActivatedRoute, private panelService: PanelService,
+    private serieService: SerieService, private titleService: TitleService) { }
 
   ngOnInit(): void {
+    this.titleService.setTitle('');
     this.id = this.route.snapshot.paramMap.get('id')
-    this.panelService.getPanel(Number(this.id)).subscribe(data => {
+    this.panelService.getPanel(Number(this.id)).subscribe((data: any) => {
+      this.titleService.setTitle(data.nombre + " - " + data.descripcion);
       this.panel = data;
       this.serieService.getList().subscribe((response: any) => {
         this.series = response.filter((serie: any) => {
