@@ -1,5 +1,8 @@
-<div *ngFor="let panel of paneles;" class="paneles-container">
-  <div class="paneles">
+<div>
+  <a routerLink="/paneles/add">Agregar panel</a>
+</div>
+<div class="paneles-container">
+  <div class="paneles" *ngFor="let panel of paneles;">
     <mat-list>
       <mat-list-item >
         <mat-icon mat-list-icon>folder</mat-icon>

@@ -44,6 +44,19 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 }
 
+.add-panel-container {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  justify-content: space-around;
+}
+
+.add-panel-component {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
 .example-spacer {
   flex: 1 1 auto;
 }

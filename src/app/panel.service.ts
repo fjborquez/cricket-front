@@ -18,6 +18,10 @@ export class PanelService {
     return this.http.get(this.url + '/paneles/' + id);
   }
 
+  addPanel(panel: any) {
+    return this.http.post(this.url + '/paneles', panel);
+  }
+
   addSerie(panelId: number, serieId: number) {
     return this.http.put(this.url + '/paneles/' + panelId + '/series/' + serieId, {});
   }

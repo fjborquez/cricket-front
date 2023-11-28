@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
+import { AddPanelComponent } from './add-panel/add-panel.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
     PanelComponent,
     ChartComponent,
     LoginComponent,
+    AddPanelComponent,
   ],
   imports: [
     BrowserModule,
