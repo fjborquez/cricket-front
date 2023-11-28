@@ -10,8 +10,8 @@ export class PanelService {
 
   constructor(private http: HttpClient) { }
 
-  getList() {
-    return this.http.get(this.url + '/paneles');
+  getList(params = {}) {
+    return this.http.get(this.url + '/paneles', params);
   }
 
   getPanel(id: number) {

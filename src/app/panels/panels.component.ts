@@ -1,6 +1,7 @@
 import { TitleService } from './../title.service';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { PanelService } from '../panel.service';
+import { jwtDecode } from 'jwt-decode';
 
 @Component({
   selector: 'app-panels',
@@ -13,8 +14,12 @@ export class PanelsComponent implements OnInit {
   constructor(private panelService: PanelService, private titleService: TitleService) { }
 
   ngOnInit(): void {
+    let decodedToken = jwtDecode(localStorage.getItem('token')!);
+
     this.titleService.setTitle("Mis paneles");
-    this.panelService.getList().subscribe(response => {
+    this.panelService.getList({
+      user_id: decodedToken.sub
+    }).subscribe(response => {
       this.paneles = response;
     });
   }
