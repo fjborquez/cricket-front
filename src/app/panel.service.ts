@@ -22,6 +22,10 @@ export class PanelService {
     return this.http.post(this.url + '/paneles', panel);
   }
 
+  delete(id: number) {
+    return this.http.delete(this.url + '/paneles/' + id);
+  }
+
   addSerie(panelId: number, serieId: number) {
     return this.http.put(this.url + '/paneles/' + panelId + '/series/' + serieId, {});
   }

@@ -4,14 +4,19 @@
 <div class="paneles-container">
   <div class="paneles" *ngFor="let panel of paneles;">
     <mat-list>
-      <mat-list-item >
-        <mat-icon mat-list-icon>folder</mat-icon>
+      <mat-list-item>
         <div mat-line>
           <a routerLink="{{ panel.id }}">{{ panel.nombre }}</a>
         </div>
         <div mat-line>
           {{ panel.descripcion }}
         </div>
+        <a (click)="onDelete(panel.id)">
+          <mat-icon mat-list-icon>delete</mat-icon>
+        </a>
+        <a>
+          <mat-icon mat-list-icon>border_color</mat-icon>
+        </a>
       </mat-list-item>
     </mat-list>
   </div>

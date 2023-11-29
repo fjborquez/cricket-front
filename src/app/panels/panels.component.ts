@@ -23,4 +23,10 @@ export class PanelsComponent implements OnInit {
       this.paneles = response;
     });
   }
+
+  onDelete(id: any) {
+    this.panelService.delete(id).subscribe(_ => {
+      this.paneles = this.paneles.filter((panel: any) => panel.id != id);
+    });
+  }
 }
