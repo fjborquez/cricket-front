@@ -1,11 +1,11 @@
 <div class="charts-selector-container">
-  <div>
+  <div class="charts-selector-component">
     <select (change)="changeSelectedSerie($event)">
       <option>Seleccionar</option>
       <option *ngFor="let serie of series" [value]="serie.id">{{ serie.nombre }}</option>
     </select>
   </div>
-  <div>
+  <div class="charts-selector-component">
     <button (click)="addChart()">Agregar</button>
   </div>
 </div>

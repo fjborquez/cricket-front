@@ -14,7 +14,11 @@ export class LoginComponent implements OnInit {
   constructor(private authService: AuthService, private titleService: TitleService, private router: Router) { }
 
   ngOnInit(): void {
-    this.titleService.setTitle('Login')
+    this.titleService.setTitle('Login');
+
+    if (localStorage.getItem('token')) {
+      this.router.navigate(['/paneles']);
+    }
   }
 
   onSubmit(loginForm: NgForm) {
