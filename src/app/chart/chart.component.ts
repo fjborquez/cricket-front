@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ViewChild } from '@angular/core';
+import { Component, Input, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { SerieService } from '../serie.service';
 import { BaseChartDirective } from 'ng2-charts';
@@ -11,6 +11,7 @@ import { BaseChartDirective } from 'ng2-charts';
 export class ChartComponent implements OnInit {
   @Input() serie: any;
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  @Output() removeChartEvent = new EventEmitter<any>()
   ser: any
   fuentes: any = []
 
@@ -48,6 +49,10 @@ export class ChartComponent implements OnInit {
       this.chart?.chart?.update();
       this.fuentes = [...new Set(this.fuentes)]
     });
+  }
+
+  removeChart(serie: any): void {
+    this.removeChartEvent.emit(serie);
   }
 
 }

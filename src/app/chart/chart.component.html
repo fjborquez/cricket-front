@@ -1,14 +1,21 @@
-<div>
-  <h3>{{ serie.nombre }}</h3>
+<mat-card>
+  <mat-card-header>{{ serie.nombre }}</mat-card-header>
   <canvas baseChart width="400" height="400"
     [type]="'line'"
     [data]="lineChartData"
     [options]="lineChartOptions"
     [legend]="lineChartLegend">
   </canvas>
-  <p>{{ serie.descripcion }}</p>
-  <span>Fuentes:</span>
-  <ul>
-    <li *ngFor="let fuente of this.fuentes">{{ fuente }}</li>
-  </ul>
-</div>
+  <div style="width:400px">
+    <p>{{ serie.descripcion }}</p>
+    <span>Fuentes:</span>
+    <ul>
+      <li *ngFor="let fuente of this.fuentes">{{ fuente }}</li>
+    </ul>
+  </div>
+  <mat-card-actions align="end">
+      <button (click)="removeChart(serie)">
+        <mat-icon mat-list-icon>delete</mat-icon>
+      </button>
+  </mat-card-actions>
+</mat-card>

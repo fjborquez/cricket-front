@@ -41,6 +41,7 @@ export class PanelComponent implements OnInit {
   }
 
   public removeChart(serie: any): void {
+    console.log("paso por aca");
     this.panelService.removeSerie(Number(this.id), serie.id).subscribe(_ => {
       this.series.push(serie);
       this.panel.series = this.panel.series.filter((checkedSerie: any) => checkedSerie.id !== serie.id);

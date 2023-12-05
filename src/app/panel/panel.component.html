@@ -12,11 +12,6 @@
 
 <div class="charts-container">
   <div class="charts" *ngFor="let serie of panel?.series;">
-    <div>
-      <app-chart [serie]="serie"></app-chart>
-    </div>
-    <div>
-      <button (click)="removeChart(serie)">Quitar</button>
-    </div>
+    <app-chart [serie]="serie" (removeChartEvent)="removeChart($event)"></app-chart>
   </div>
 </div>

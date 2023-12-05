@@ -18,6 +18,7 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPanelComponent } from './add-panel/add-panel.component';
+import {MatCardModule} from '@angular/material/card';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { AddPanelComponent } from './add-panel/add-panel.component';
     MatListModule,
     MatIconModule,
     MatToolbarModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCardModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

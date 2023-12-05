@@ -19,11 +19,14 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   flex-direction: row;
   flex-grow: 3;
   justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .charts {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
 }
 
 .login-container {
@@ -43,6 +46,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   display: flex;
   flex-direction: row;
   flex-grow: 4;
+  flex-wrap: wrap;
+  justify-content: space-around
 }
 
 .paneles {

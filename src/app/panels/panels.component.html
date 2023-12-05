@@ -2,22 +2,20 @@
   <a routerLink="/paneles/add"><button>Agregar panel</button></a>
 </div>
 <div class="paneles-container">
-  <div class="paneles" *ngFor="let panel of paneles;">
-    <mat-list>
-      <mat-list-item>
-        <div mat-line>
-          <a routerLink="{{ panel.id }}">{{ panel.nombre }}</a>
-        </div>
-        <div mat-line>
-          {{ panel.descripcion }}
-        </div>
-        <a (click)="onDelete(panel.id)">
-          <mat-icon mat-list-icon>delete</mat-icon>
-        </a>
-        <a>
+  <div class="paneles" *ngFor="let panel of paneles;" style="width:400px;">
+    <mat-card>
+      <mat-card-header>
+        <a routerLink="{{ panel.id }}">{{ panel.nombre }}</a>
+      </mat-card-header>
+      {{ panel.descripcion }}
+      <mat-card-actions align="end">
+        <button mat-button>
           <mat-icon mat-list-icon>border_color</mat-icon>
-        </a>
-      </mat-list-item>
-    </mat-list>
+        </button>
+        <button mat-button (click)="onDelete(panel.id)">
+          <mat-icon mat-list-icon>delete</mat-icon>
+        </button>
+      </mat-card-actions>
+    </mat-card>
   </div>
 </div>
