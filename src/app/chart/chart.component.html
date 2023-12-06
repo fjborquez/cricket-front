@@ -1,13 +1,39 @@
 <mat-card>
-  <mat-card-header>{{ serie.nombre }}</mat-card-header>
-  <canvas baseChart width="400" height="400"
-    [type]="'line'"
-    [data]="lineChartData"
-    [options]="lineChartOptions"
-    [legend]="lineChartLegend">
-  </canvas>
+  <mat-card-header>{{ ser.nombre }}</mat-card-header>
+
+  <div *ngFor="let configuracion of ser.configuraciones">
+    <div *ngFor="let opcion of configuracion.opciones">
+      <canvas baseChart width="400" height="400"
+        [type]="'line'"
+        [data]="lineChartData"
+        [options]="lineChartOptions"
+        [legend]="lineChartLegend"
+        *ngIf="opcion.nombre == 'Grafico de lineas' && opcion.valor_por_defecto == 'true'"
+        >
+      </canvas>
+
+      <div style="width:400px;max-height:100%;height: 400px;overflow: auto;"
+        *ngIf="opcion.nombre == 'Tabla' && opcion.valor_por_defecto == 'true'">
+        <table mat-table [dataSource]="dataSource" style="width:375px;">
+          <ng-container matColumnDef="clave">
+            <th mat-header-cell *matHeaderCellDef>clave</th>
+            <td mat-cell *matCellDef="let element"> {{element.clave}} </td>
+          </ng-container>
+
+          <ng-container matColumnDef="valor">
+            <th mat-header-cell *matHeaderCellDef>valor</th>
+            <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="['clave', 'valor']"></tr>
+          <tr mat-row *matRowDef="let row; columns: ['clave', 'valor'];"></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+
   <div style="width:400px">
-    <p>{{ serie.descripcion }}</p>
+    <p>{{ ser.descripcion }}</p>
     <span>Fuentes:</span>
     <ul>
       <li *ngFor="let fuente of this.fuentes">{{ fuente }}</li>

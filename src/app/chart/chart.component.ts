@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild, Output, EventEmitter } from '@angu
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { SerieService } from '../serie.service';
 import { BaseChartDirective } from 'ng2-charts';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-chart',
@@ -14,6 +15,7 @@ export class ChartComponent implements OnInit {
   @Output() removeChartEvent = new EventEmitter<any>()
   ser: any
   fuentes: any = []
+  dataSource = new MatTableDataSource<any>();
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
@@ -48,6 +50,7 @@ export class ChartComponent implements OnInit {
 
       this.chart?.chart?.update();
       this.fuentes = [...new Set(this.fuentes)]
+      this.dataSource = new MatTableDataSource<any>(this.ser.datos);
     });
   }
 
