@@ -13,7 +13,7 @@ export class ChartComponent implements OnInit {
   @Input() serie: any;
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   @Output() removeChartEvent = new EventEmitter<any>()
-  ser: any
+  ser: any = {};
   fuentes: any = []
   dataSource = new MatTableDataSource<any>();
 

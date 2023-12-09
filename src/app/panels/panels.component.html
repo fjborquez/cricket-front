@@ -2,7 +2,7 @@
   <a routerLink="/paneles/add"><button>Agregar panel</button></a>
 </div>
 <div class="paneles-container">
-  <div class="paneles" *ngFor="let panel of paneles;" style="width:400px;">
+  <div class="paneles" *ngFor="let panel of paneles;" style="width:400px; margin-top:1%">
     <mat-card>
       <mat-card-header>
         <a routerLink="{{ panel.id }}">{{ panel.nombre }}</a>

@@ -1,5 +1,6 @@
 <div class="charts-selector-container">
   <div class="charts-selector-component">
+    Series estadisticas:
     <select (change)="changeSelectedSerie($event)">
       <option>Seleccionar</option>
       <option *ngFor="let serie of series" [value]="serie.id">{{ serie.nombre }}</option>
@@ -8,10 +9,8 @@
   <div class="charts-selector-component">
     <button (click)="addChart()">Agregar</button>
   </div>
-</div>
-
-<div class="charts-selector-container">
   <div class="charts-selector-component">
+    Insiders:
     <select (change)="changeSelectedInsider($event)">
       <option>Seleccionar</option>
       <option *ngFor="let insider of insiders" [value]="insider.id">{{ insider.nombre }}</option>

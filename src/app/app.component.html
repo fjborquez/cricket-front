@@ -8,7 +8,7 @@
       <mat-toolbar-row>
         <span>{{ newTitle }}</span>
         <span class="example-spacer"></span>
-        <button (click)="volver()">
+        <button (click)="volver()" *ngIf="isAuthenticated()">
           <mat-icon>arrow_back</mat-icon>
         </button>
       </mat-toolbar-row>
