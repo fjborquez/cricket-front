@@ -31,7 +31,15 @@ export class PanelService {
     return this.http.put(this.url + '/' + panelId + '/series/' + serieId, {});
   }
 
+  addInsider(panelId: number, serieId: number) {
+    return this.http.put(this.url + '/' + panelId + '/insiders/' + serieId, {});
+  }
+
   removeSerie(panelId: number, serieId: number) {
     return this.http.delete(this.url + '/' + panelId + '/series/' + serieId);
+  }
+
+  removeInsider(panelId: number, insiderId: number) {
+    return this.http.delete(this.url + '/' + panelId + '/insiders/' + insiderId);
   }
 }

@@ -20,6 +20,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPanelComponent } from './add-panel/add-panel.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
+import { SubpanelInsidersComponent } from './subpanel-insiders/subpanel-insiders.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import {MatTableModule} from '@angular/material/table';
     ChartComponent,
     LoginComponent,
     AddPanelComponent,
+    SubpanelInsidersComponent,
   ],
   imports: [
     BrowserModule,

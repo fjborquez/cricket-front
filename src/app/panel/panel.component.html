@@ -10,8 +10,23 @@
   </div>
 </div>
 
+<div class="charts-selector-container">
+  <div class="charts-selector-component">
+    <select (change)="changeSelectedInsider($event)">
+      <option>Seleccionar</option>
+      <option *ngFor="let insider of insiders" [value]="insider.id">{{ insider.nombre }}</option>
+    </select>
+  </div>
+  <div class="charts-selector-component">
+    <button (click)="addInsider()">Agregar</button>
+  </div>
+</div>
+
 <div class="charts-container">
   <div class="charts" *ngFor="let serie of panel?.series;">
     <app-chart [serie]="serie" (removeChartEvent)="removeChart($event)"></app-chart>
+  </div>
+  <div class="charts" *ngFor="let insider of panel?.insiders;">
+    <app-subpanel-insiders [insider]="insider" (removeInsiderEvent)="removeInsider($event)"></app-subpanel-insiders>
   </div>
 </div>

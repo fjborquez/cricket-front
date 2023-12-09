@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>{{ insider.nombre }}</mat-card-header>
+  <div style="width:400px;max-height:100%;height: 400px;overflow: auto;">
+    <table mat-table [dataSource]="dataSource" style="width:375px;">
+      <ng-container matColumnDef="nombre">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element"> {{element.name | titlecase}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="cargo">
+        <th mat-header-cell *matHeaderCellDef>Cargo</th>
+        <td mat-cell *matCellDef="let element"> {{element.position | titlecase}} </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['nombre', 'cargo']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['nombre', 'cargo'];"></tr>
+    </table>
+  </div>
+  <div style="width:400px">
+    <p>{{ insider.descripcion }}</p>
+    <span>Fuentes:</span>
+    <ul>
+      <li>{{ this.fuente }}</li>
+    </ul>
+  </div>
+  <mat-card-actions align="end">
+      <button (click)="removeInsider(insider)">
+        <mat-icon mat-list-icon>delete</mat-icon>
+      </button>
+  </mat-card-actions>
+</mat-card>
