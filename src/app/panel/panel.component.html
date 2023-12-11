@@ -19,6 +19,16 @@
   <div class="charts-selector-component">
     <button (click)="addInsider()">Agregar</button>
   </div>
+  <div class="charts-selector-component">
+    Resultados anuales:
+    <select (change)="changeSelectedResultadoAnual($event)">
+      <option>Seleccionar</option>
+      <option *ngFor="let resultadoAnual of resultadosAnuales" [value]="resultadoAnual.id">{{ resultadoAnual.nombre }}</option>
+    </select>
+  </div>
+  <div class="charts-selector-component">
+    <button (click)="addResultadoAnual()">Agregar</button>
+  </div>
 </div>
 
 <div class="charts-container">
@@ -27,5 +37,8 @@
   </div>
   <div class="charts" *ngFor="let insider of panel?.insiders;">
     <app-subpanel-insiders [insider]="insider" (removeInsiderEvent)="removeInsider($event)"></app-subpanel-insiders>
+  </div>
+  <div class="charts" *ngFor="let resultadoAnual of panel?.resultados_anuales;">
+    <app-subpanel-resultados-anuales [resultadoAnual]="resultadoAnual" (removeResultadoAnualEvent)="removeResultadoAnual($event)"></app-subpanel-resultados-anuales>
   </div>
 </div>

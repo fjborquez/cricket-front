@@ -21,6 +21,7 @@ import { AddPanelComponent } from './add-panel/add-panel.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { SubpanelInsidersComponent } from './subpanel-insiders/subpanel-insiders.component';
+import { SubpanelResultadosAnualesComponent } from './subpanel-resultados-anuales/subpanel-resultados-anuales.component';
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import { SubpanelInsidersComponent } from './subpanel-insiders/subpanel-insiders
     LoginComponent,
     AddPanelComponent,
     SubpanelInsidersComponent,
+    SubpanelResultadosAnualesComponent,
   ],
   imports: [
     BrowserModule,
