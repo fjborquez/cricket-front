@@ -7,7 +7,7 @@ import { environment } from '../environments/environment';
 })
 export class SerieService {
 
-  private url = environment.baseUrl + 'series';
+  private url = environment.baseUrl + 'series-estadisticas';
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class SerieService {
     return this.http.get(this.url);
   }
 
-  getSerie(id: number) {
-    return this.http.get(this.url  + '/' +  id);
+  getSerie(url: string) {
+    return this.http.get(url);
   }
 }

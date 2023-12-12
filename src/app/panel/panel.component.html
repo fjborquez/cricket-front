@@ -6,7 +6,7 @@
       <option *ngFor="let serie of series" [value]="serie.id">{{ serie.nombre }}</option>
     </select>
   </div>
-  <div class="charts-selector-component">
+  <div class="charts-selector-component|">
     <button (click)="addChart()">Agregar</button>
   </div>
   <div class="charts-selector-component">
@@ -32,7 +32,7 @@
 </div>
 
 <div class="charts-container">
-  <div class="charts" *ngFor="let serie of panel?.series;">
+  <div class="charts" *ngFor="let serie of panel?.series_estadisticas;">
     <app-chart [serie]="serie" (removeChartEvent)="removeChart($event)"></app-chart>
   </div>
   <div class="charts" *ngFor="let insider of panel?.insiders;">

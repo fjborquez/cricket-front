@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://grayson-api.test/api/'
+  baseUrl: 'http://cricket-api.test/api/'
 };
 
 /*

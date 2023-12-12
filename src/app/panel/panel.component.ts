@@ -33,7 +33,7 @@ export class PanelComponent implements OnInit {
       this.panel = data;
       this.serieService.getList().subscribe((response: any) => {
         this.series = response.filter((serie: any) => {
-          return !this.panel.series.map((serie: any) => serie.id).includes(serie.id)
+          return !this.panel.series_estadisticas.map((serie: any) => serie.id).includes(serie.id)
         });
       });
       this.insiderService.getList().subscribe((response: any) => {
@@ -51,7 +51,7 @@ export class PanelComponent implements OnInit {
 
   public addChart(): void {
     this.panelService.addSerie(Number(this.id), this.selectedSerie.id).subscribe(_ => {
-      this.panel.series.push(this.selectedSerie);
+      this.panel.series_estadisticas.push(this.selectedSerie);
       this.series = this.series.filter((checkedSerie: any) => checkedSerie.id !== this.selectedSerie.id);
       this.selectedSerie = null;
     });
@@ -76,7 +76,7 @@ export class PanelComponent implements OnInit {
   public removeChart(serie: any): void {
     this.panelService.removeSerie(Number(this.id), serie.id).subscribe(_ => {
       this.series.push(serie);
-      this.panel.series = this.panel.series.filter((checkedSerie: any) => checkedSerie.id !== serie.id);
+      this.panel.series_estadisticas = this.panel.series_estadisticas.filter((checkedSerie: any) => checkedSerie.id !== serie.id);
     });
   }
 

@@ -38,7 +38,7 @@ export class ChartComponent implements OnInit {
   constructor(private serieService: SerieService) { }
 
   ngOnInit(): void {
-    this.serieService.getSerie(this.serie.id).subscribe(response => {
+    this.serieService.getSerie(this.serie.url).subscribe(response => {
       this.ser = response
 
       this.ser.datos.forEach((element: any) => {
