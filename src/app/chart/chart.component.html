@@ -1,7 +1,7 @@
 <mat-card>
   <mat-card-header>{{ ser.nombre }}</mat-card-header>
 
-  <div *ngFor="let configuracion of ser.configuraciones">
+  <div *ngFor="let configuracion of serie.configuraciones">
     <div *ngFor="let opcion of configuracion.opciones">
       <canvas baseChart width="400" height="400"
         [type]="'line'"

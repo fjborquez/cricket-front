@@ -38,6 +38,7 @@ export class ChartComponent implements OnInit {
   constructor(private serieService: SerieService) { }
 
   ngOnInit(): void {
+    console.log(this.serie.configuraciones)
     this.serieService.getSerie(this.serie.url).subscribe(response => {
       this.ser = response
 
