@@ -12,7 +12,7 @@ export class PanelService {
   constructor(private http: HttpClient) { }
 
   getList(params = {}) {
-    return this.http.get(this.url, params);
+    return this.http.get(this.url, {params});
   }
 
   getPanel(id: number) {
