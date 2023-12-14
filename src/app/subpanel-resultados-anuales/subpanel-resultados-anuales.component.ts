@@ -1,7 +1,7 @@
-import { ResultadoAnualService } from './../resultado-anual.service';
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { SubpanelService } from '../subpanel.service';
 
 
 @Component({
@@ -11,7 +11,7 @@ import { BaseChartDirective } from 'ng2-charts';
 })
 export class SubpanelResultadosAnualesComponent implements OnInit {
   @Input() resultadoAnual: any;
-  @Output() removeResultadoAnualEvent = new EventEmitter<any>()
+  @Output() removeSubpanelEvent = new EventEmitter<any>()
   res: any = {};
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   fuente: string = "SEC - EDGAR"
@@ -35,10 +35,10 @@ export class SubpanelResultadosAnualesComponent implements OnInit {
   };
   public lineChartLegend = true;
 
-  constructor(private resultadoAnualService: ResultadoAnualService) { }
+  constructor(private subpanelService: SubpanelService) { }
 
   ngOnInit(): void {
-    this.resultadoAnualService.getResultadoAnual(this.resultadoAnual.url).subscribe(response => {
+    this.subpanelService.getSubpanel(this.resultadoAnual.url).subscribe((response: any) => {
       this.res = response
 
       this.res.reverse().forEach((element: any) => {
@@ -51,7 +51,7 @@ export class SubpanelResultadosAnualesComponent implements OnInit {
   }
 
   removeResultadoAnual(serie: any): void {
-    this.removeResultadoAnualEvent.emit(serie);
+    this.removeSubpanelEvent.emit(serie);
   }
 
 }

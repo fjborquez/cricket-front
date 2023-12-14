@@ -27,27 +27,11 @@ export class PanelService {
     return this.http.delete(this.url + '/' + id);
   }
 
-  addSerie(panelId: number, serieId: number) {
-    return this.http.put(this.url + '/' + panelId + '/series/' + serieId, {});
+  addSubpanel(panelId: number, subpanelId: number) {
+    return this.http.put(this.url + '/' + panelId + '/subpaneles/' + subpanelId, {});
   }
 
-  addInsider(panelId: number, serieId: number) {
-    return this.http.put(this.url + '/' + panelId + '/insiders/' + serieId, {});
-  }
-
-  addResultadoAnual(panelId: number, resultadoAnualId: number) {
-    return this.http.put(this.url + '/' + panelId + '/resultados/' + resultadoAnualId, {});
-  }
-
-  removeSerie(panelId: number, serieId: number) {
-    return this.http.delete(this.url + '/' + panelId + '/series/' + serieId);
-  }
-
-  removeInsider(panelId: number, insiderId: number) {
-    return this.http.delete(this.url + '/' + panelId + '/insiders/' + insiderId);
-  }
-
-  removeResultadoAnual(panelId: number, resultadoAnualId: number) {
-    return this.http.delete(this.url + '/' + panelId + '/resultados/' + resultadoAnualId);
+  removeSubpanel(panelId: number, subpanelId: number) {
+    return this.http.delete(this.url + '/' + panelId + '/subpaneles/' + subpanelId);
   }
 }

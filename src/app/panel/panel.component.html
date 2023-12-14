@@ -1,44 +1,20 @@
 <div class="charts-selector-container">
   <div class="charts-selector-component">
-    Series estadisticas:
-    <select (change)="changeSelectedSerie($event)">
+    Subpanel:
+    <select (change)="changeSelectedSubpanel($event)">
       <option>Seleccionar</option>
-      <option *ngFor="let serie of series" [value]="serie.id">{{ serie.nombre }}</option>
+      <option *ngFor="let subpanel of subpaneles" [value]="subpanel.id">{{ subpanel.nombre }}</option>
     </select>
   </div>
   <div class="charts-selector-component|">
-    <button (click)="addChart()">Agregar</button>
-  </div>
-  <div class="charts-selector-component">
-    Insiders:
-    <select (change)="changeSelectedInsider($event)">
-      <option>Seleccionar</option>
-      <option *ngFor="let insider of insiders" [value]="insider.id">{{ insider.nombre }}</option>
-    </select>
-  </div>
-  <div class="charts-selector-component">
-    <button (click)="addInsider()">Agregar</button>
-  </div>
-  <div class="charts-selector-component">
-    Resultados anuales:
-    <select (change)="changeSelectedResultadoAnual($event)">
-      <option>Seleccionar</option>
-      <option *ngFor="let resultadoAnual of resultadosAnuales" [value]="resultadoAnual.id">{{ resultadoAnual.nombre }}</option>
-    </select>
-  </div>
-  <div class="charts-selector-component">
-    <button (click)="addResultadoAnual()">Agregar</button>
+    <button (click)="addSubpanel()">Agregar</button>
   </div>
 </div>
 
 <div class="charts-container">
-  <div class="charts" *ngFor="let serie of panel?.series_estadisticas;">
-    <app-chart [serie]="serie" (removeChartEvent)="removeChart($event)"></app-chart>
-  </div>
-  <div class="charts" *ngFor="let insider of panel?.insiders;">
-    <app-subpanel-insiders [insider]="insider" (removeInsiderEvent)="removeInsider($event)"></app-subpanel-insiders>
-  </div>
-  <div class="charts" *ngFor="let resultadoAnual of panel?.resultados_anuales;">
-    <app-subpanel-resultados-anuales [resultadoAnual]="resultadoAnual" (removeResultadoAnualEvent)="removeResultadoAnual($event)"></app-subpanel-resultados-anuales>
+  <div class="charts" *ngFor="let subpanel of panel?.subpaneles;">
+    <app-chart *ngIf="subpanel.type === 'serieEstadistica'" [serie]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-chart>
+    <app-subpanel-insiders *ngIf="subpanel.type === 'insider'" [insider]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-subpanel-insiders>
+    <app-subpanel-resultados-anuales *ngIf="subpanel.type === 'resultadoAnual'" [resultadoAnual]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-subpanel-resultados-anuales>
   </div>
 </div>

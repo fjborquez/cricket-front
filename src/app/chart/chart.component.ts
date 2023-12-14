@@ -1,8 +1,8 @@
 import { Component, Input, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
-import { SerieService } from '../serie.service';
 import { BaseChartDirective } from 'ng2-charts';
 import { MatTableDataSource } from '@angular/material/table';
+import { SubpanelService } from '../subpanel.service';
 
 @Component({
   selector: 'app-chart',
@@ -12,7 +12,7 @@ import { MatTableDataSource } from '@angular/material/table';
 export class ChartComponent implements OnInit {
   @Input() serie: any;
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-  @Output() removeChartEvent = new EventEmitter<any>()
+  @Output() removeSubpanelEvent = new EventEmitter<any>()
   ser: any = {};
   fuentes: any = []
   dataSource = new MatTableDataSource<any>();
@@ -35,11 +35,10 @@ export class ChartComponent implements OnInit {
   };
   public lineChartLegend = true;
 
-  constructor(private serieService: SerieService) { }
+  constructor(private subpanelService: SubpanelService) { }
 
   ngOnInit(): void {
-    console.log(this.serie.configuraciones)
-    this.serieService.getSerie(this.serie.url).subscribe(response => {
+    this.subpanelService.getSubpanel(this.serie.url).subscribe((response: any) => {
       this.ser = response
 
       this.ser.datos.forEach((element: any) => {
@@ -48,7 +47,6 @@ export class ChartComponent implements OnInit {
         this.fuentes.push(element.fuente);
       })
 
-
       this.chart?.chart?.update();
       this.fuentes = [...new Set(this.fuentes)]
       this.dataSource = new MatTableDataSource<any>(this.ser.datos);
@@ -56,7 +54,7 @@ export class ChartComponent implements OnInit {
   }
 
   removeChart(serie: any): void {
-    this.removeChartEvent.emit(serie);
+    this.removeSubpanelEvent.emit(serie);
   }
 
 }

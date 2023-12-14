@@ -1,13 +1,13 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment';
+import { environment } from '../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class InsiderService {
+export class SubpanelService {
 
-  private url = environment.baseUrl + 'insiders'
+  private url = environment.baseUrl + 'subpaneles';
 
   constructor(private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class InsiderService {
     return this.http.get(this.url);
   }
 
-  getInsider(url: string) {
+  getSubpanel(url: string) {
     return this.http.get(url);
   }
 }

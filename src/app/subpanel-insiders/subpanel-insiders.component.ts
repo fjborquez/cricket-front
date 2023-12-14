@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { InsiderService } from '../insider.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { SubpanelService } from '../subpanel.service';
 
 @Component({
   selector: 'app-subpanel-insiders',
@@ -9,22 +9,22 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class SubpanelInsidersComponent implements OnInit {
   @Input() insider: any;
-  @Output() removeInsiderEvent = new EventEmitter<any>()
+  @Output() removeSubpanelEvent = new EventEmitter<any>()
   fuente: string  = "EDGAR - SEC";
   insiders: any = [];
   dataSource = new MatTableDataSource<any>();
 
-  constructor(private insiderService: InsiderService) { }
+  constructor(private subpanelService: SubpanelService) { }
 
   ngOnInit(): void {
-    this.insiderService.getInsider(this.insider.url).subscribe(response => {
+    this.subpanelService.getSubpanel(this.insider.url).subscribe(response => {
       this.insiders = response;
       this.dataSource = new MatTableDataSource<any>(this.insiders.sort(this.compareByStocks));
     });
   }
 
   removeInsider(insider: any): void {
-    this.removeInsiderEvent.emit(insider);
+    this.removeSubpanelEvent.emit(insider);
   }
 
   compareByStocks(insiderA: any, insiderB: any) {
