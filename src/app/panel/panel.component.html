@@ -11,8 +11,8 @@
   </div>
 </div>
 
-<div class="charts-container">
-  <div class="charts" *ngFor="let subpanel of panel?.subpaneles;">
+<div class="charts-container" cdkDropList (cdkDropListDropped)="drop($event)">
+  <div class="charts" *ngFor="let subpanel of panel?.subpaneles;" cdkDrag>
     <app-chart *ngIf="subpanel.type === 'serieEstadistica'" [serie]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-chart>
     <app-subpanel-insiders *ngIf="subpanel.type === 'insider'" [insider]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-subpanel-insiders>
     <app-subpanel-resultados-anuales *ngIf="subpanel.type === 'resultadoAnual'" [resultadoAnual]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-subpanel-resultados-anuales>

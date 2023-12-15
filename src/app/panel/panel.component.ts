@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { PanelService } from '../panel.service';
 import { TitleService } from '../title.service';
+import { CdkDragDrop, moveItemInArray } from '@angular/cdk/drag-drop';
 
 @Component({
   selector: 'app-panel',
@@ -33,7 +34,7 @@ export class PanelComponent implements OnInit {
   }
 
   public addSubpanel(): void {
-    this.panelService.addSubpanel(Number(this.id), this.selectedSubpanel.id).subscribe(_ => {
+    this.panelService.addSubpanel(Number(this.id), this.selectedSubpanel.id, {position: this.panel.subpaneles.length + 1}).subscribe(_ => {
       this.panel.subpaneles.push(this.selectedSubpanel);
       this.subpaneles = this.subpaneles.filter((checkedSerie: any) => checkedSerie.id !== this.selectedSubpanel.id);
       this.selectedSubpanel = null;
@@ -49,6 +50,15 @@ export class PanelComponent implements OnInit {
 
   public changeSelectedSubpanel(event: any): void {
     this.selectedSubpanel = this.subpaneles.find((serie: any) => event.target.value == serie.id);
+  }
+
+  drop(event: CdkDragDrop<string[]>) {
+    moveItemInArray(this.panel.subpaneles, event.previousIndex, event.currentIndex);
+      let movedSubpanel = this.panel.subpaneles[event.previousIndex];
+      let subpanelToBeMoved = this.panel.subpaneles[event.currentIndex];
+
+      this.panelService.addSubpanel(this.panel.id, movedSubpanel.id, {position: event.previousIndex}).subscribe();
+      this.panelService.addSubpanel(this.panel.id, subpanelToBeMoved.id, {position: event.currentIndex}).subscribe();
   }
 
 }

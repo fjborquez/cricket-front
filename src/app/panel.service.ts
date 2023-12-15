@@ -27,8 +27,8 @@ export class PanelService {
     return this.http.delete(this.url + '/' + id);
   }
 
-  addSubpanel(panelId: number, subpanelId: number) {
-    return this.http.put(this.url + '/' + panelId + '/subpaneles/' + subpanelId, {});
+  addSubpanel(panelId: number, subpanelId: number, params = {}) {
+    return this.http.put(this.url + '/' + panelId + '/subpaneles/' + subpanelId, params);
   }
 
   removeSubpanel(panelId: number, subpanelId: number) {

@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
 import { FormsModule }   from '@angular/forms';
+import { DragDropModule } from '@angular/cdk/drag-drop';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -47,7 +48,8 @@ import { SubpanelResultadosAnualesComponent } from './subpanel-resultados-anuale
     MatToolbarModule,
     MatGridListModule,
     MatCardModule,
-    MatTableModule
+    MatTableModule,
+    DragDropModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
