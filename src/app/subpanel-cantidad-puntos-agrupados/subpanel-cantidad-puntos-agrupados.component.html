@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>{{ subpanel.nombre }}</mat-card-header>
+  <div style="width:400px;max-height:100%;height:432px;overflow: auto;">
+    <table mat-table [dataSource]="dataSource" style="width:375px;">
+      <ng-container matColumnDef="titular">
+        <th mat-header-cell *matHeaderCellDef>Nombre</th>
+        <td mat-cell *matCellDef="let element"> {{element.titular | titlecase}} </td>
+      </ng-container>
+      <ng-container matColumnDef="cantidad">
+        <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+        <td mat-cell *matCellDef="let element"> {{element.puntos.length}} </td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="['titular', 'cantidad']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['titular', 'cantidad'];"></tr>
+    </table>
+  </div>
+  <div style="width:400px">
+    <p>{{ subpanel.descripcion }}</p>
+    <span>Fuentes:</span>
+    <ul>
+      <li>{{ this.fuente }}</li>
+    </ul>
+  </div>
+  <mat-card-actions align="end">
+      <button (click)="removeSubpanel(subpanel)">
+        <mat-icon mat-list-icon>delete</mat-icon>
+      </button>
+  </mat-card-actions>
+</mat-card>

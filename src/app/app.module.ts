@@ -23,6 +23,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatTableModule} from '@angular/material/table';
 import { SubpanelInsidersComponent } from './subpanel-insiders/subpanel-insiders.component';
 import { SubpanelResultadosAnualesComponent } from './subpanel-resultados-anuales/subpanel-resultados-anuales.component';
+import { SubpanelPuntosPorEmpresaComponent } from './subpanel-cantidad-puntos-agrupados/subpanel-cantidad-puntos-agrupados.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { SubpanelResultadosAnualesComponent } from './subpanel-resultados-anuale
     AddPanelComponent,
     SubpanelInsidersComponent,
     SubpanelResultadosAnualesComponent,
+    SubpanelPuntosPorEmpresaComponent,
   ],
   imports: [
     BrowserModule,
