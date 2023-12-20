@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ViewChild, Output, EventEmitter } from '@angular/core';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
-import { MatLegacyTableDataSource as MatTableDataSource } from '@angular/material/legacy-table';
+import { MatTableDataSource } from '@angular/material/table';
 import { SubpanelService } from '../subpanel.service';
 
 @Component({
