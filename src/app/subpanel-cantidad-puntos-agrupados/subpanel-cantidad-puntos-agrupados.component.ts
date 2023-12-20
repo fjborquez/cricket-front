@@ -37,7 +37,6 @@ export class SubpanelPuntosPorEmpresaComponent implements OnInit {
 
       this.puntos = groupedBy;
       this.dataSource = new MatTableDataSource<any>(this.puntos.sort(this.compare));
-      console.log(this.puntos);
     });
   }
 

@@ -5,6 +5,7 @@ import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
 import { NgChartsModule } from 'ng2-charts';
 import { FormsModule }   from '@angular/forms';
 import { DragDropModule } from '@angular/cdk/drag-drop';
+import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -51,7 +52,8 @@ import { SubpanelPuntosPorEmpresaComponent } from './subpanel-cantidad-puntos-ag
     MatGridListModule,
     MatCardModule,
     MatTableModule,
-    DragDropModule
+    DragDropModule,
+    LeafletModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
