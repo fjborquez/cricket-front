@@ -1,4 +1,4 @@
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {HTTP_INTERCEPTORS, HttpClientModule} from '@angular/common/http';
@@ -19,8 +19,8 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { AddPanelComponent } from './add-panel/add-panel.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatTableModule} from '@angular/material/table';
+import {MatLegacyCardModule as MatCardModule} from '@angular/material/legacy-card';
+import {MatLegacyTableModule as MatTableModule} from '@angular/material/legacy-table';
 import { SubpanelInsidersComponent } from './subpanel-insiders/subpanel-insiders.component';
 import { SubpanelResultadosAnualesComponent } from './subpanel-resultados-anuales/subpanel-resultados-anuales.component';
 import { SubpanelPuntosPorEmpresaComponent } from './subpanel-cantidad-puntos-agrupados/subpanel-cantidad-puntos-agrupados.component';
