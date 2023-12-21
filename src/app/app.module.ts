@@ -25,41 +25,43 @@ import { MatTableModule } from '@angular/material/table';
 import { SubpanelInsidersComponent } from './subpanel-insiders/subpanel-insiders.component';
 import { SubpanelResultadosAnualesComponent } from './subpanel-resultados-anuales/subpanel-resultados-anuales.component';
 import { SubpanelPuntosPorEmpresaComponent } from './subpanel-cantidad-puntos-agrupados/subpanel-cantidad-puntos-agrupados.component';
+import { SubpanelMapaComponent } from "./subpanel-mapa/subpanel-mapa.component";
 
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    PanelsComponent,
-    PanelComponent,
-    ChartComponent,
-    LoginComponent,
-    AddPanelComponent,
-    SubpanelInsidersComponent,
-    SubpanelResultadosAnualesComponent,
-    SubpanelPuntosPorEmpresaComponent,
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    NgChartsModule,
-    FormsModule,
-    BrowserAnimationsModule,
-    MatListModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatCardModule,
-    MatTableModule,
-    DragDropModule,
-    LeafletModule
-  ],
-  providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
-    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
-    JwtHelperService
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+        PanelsComponent,
+        PanelComponent,
+        ChartComponent,
+        LoginComponent,
+        AddPanelComponent,
+        SubpanelInsidersComponent,
+        SubpanelResultadosAnualesComponent,
+        SubpanelPuntosPorEmpresaComponent,
+        SubpanelMapaComponent,
+    ],
+    providers: [
+        { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+        { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+        JwtHelperService
+    ],
+    bootstrap: [AppComponent],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        HttpClientModule,
+        NgChartsModule,
+        FormsModule,
+        BrowserAnimationsModule,
+        MatListModule,
+        MatIconModule,
+        MatToolbarModule,
+        MatGridListModule,
+        MatCardModule,
+        MatTableModule,
+        DragDropModule,
+        LeafletModule,
+    ]
 })
 export class AppModule { }
