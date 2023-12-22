@@ -14,7 +14,6 @@ export class ChartComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
   @Output() removeSubpanelEvent = new EventEmitter<any>()
   ser: any = {};
-  fuentes: any = []
   dataSource = new MatTableDataSource<any>();
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
@@ -44,11 +43,9 @@ export class ChartComponent implements OnInit {
       this.ser.datos.forEach((element: any) => {
         this.lineChartData?.labels?.push(element.clave);
         this.lineChartData.datasets[0].data.push(element.valor);
-        this.fuentes.push(element.fuente);
       })
 
       this.chart?.chart?.update();
-      this.fuentes = [...new Set(this.fuentes)]
       this.dataSource = new MatTableDataSource<any>(this.ser.datos);
     });
   }

@@ -10,9 +10,9 @@ import * as Leaflet from 'leaflet';
 export class SubpanelMapaComponent {
   @Input() subpanel: any;
   @Output() removeSubpanelEvent = new EventEmitter<any>();
-  fuente: string  = "Ministerio de energia y minas";
   puntos: any = [];
   options: any;
+  fuente: string = '';
 
   constructor(private subpanelService: SubpanelService) { }
 
@@ -24,6 +24,11 @@ export class SubpanelMapaComponent {
       response.forEach((point: any, index: any) => {
         if (index == 0) {
           center = new Leaflet.LatLng(point.lat, point.long);
+          this.fuente = point.metadata.find((metadata: any) => {
+            if (metadata.key == 'source') {
+              return metadata.value;
+            }
+          });
         }
 
         let marker = new Leaflet.Marker(new Leaflet.LatLng(point.lat, point.long), {
