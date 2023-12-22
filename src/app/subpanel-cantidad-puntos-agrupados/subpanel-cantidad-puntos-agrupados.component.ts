@@ -9,7 +9,6 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class SubpanelPuntosPorEmpresaComponent implements OnInit {
   @Input() subpanel: any;
-  @Input() agrupar: string = '';
   @Output() removeSubpanelEvent = new EventEmitter();
   fuente: string = "Ministerio de energia y minas - Peru";
   puntos: any = [];
@@ -23,7 +22,7 @@ export class SubpanelPuntosPorEmpresaComponent implements OnInit {
       const groupedBy: any = [];
       puntos.forEach((punto: any) => {
         punto.metadata.forEach((metadata: any) => {
-          if (metadata.key === this.agrupar) {
+          if (metadata.key === this.subpanel.grouped_by) {
             let exists = groupedBy.find((value: any) => { return value.titular === metadata.value;});
             if (exists) {
               exists.puntos.push(punto);
