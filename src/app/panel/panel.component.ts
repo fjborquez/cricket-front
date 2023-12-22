@@ -25,7 +25,7 @@ export class PanelComponent implements OnInit {
     this.panelService.getPanel(Number(this.id)).subscribe((data: any) => {
       this.titleService.setTitle(data.nombre + " - " + data.descripcion);
       this.panel = data;
-      this.subpanelService.getList().subscribe((response: any) => {
+      this.subpanelService.getList({orderBy:'nombre', orderDirection:'ASC'}).subscribe((response: any) => {
         this.subpaneles = response.filter((serie: any) => {
           return !this.panel.subpaneles.map((serie: any) => serie.id).includes(serie.id)
         });

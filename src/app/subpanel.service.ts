@@ -11,8 +11,8 @@ export class SubpanelService {
 
   constructor(private http: HttpClient) { }
 
-  getList() {
-    return this.http.get(this.url);
+  getList(params = {}) {
+    return this.http.get(this.url, {params});
   }
 
   getSubpanel(url: string) {
