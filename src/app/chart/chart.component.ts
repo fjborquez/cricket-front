@@ -38,8 +38,7 @@ export class ChartComponent implements OnInit {
 
   ngOnInit(): void {
     this.subpanelService.getSubpanel(this.serie.url).subscribe((response: any) => {
-      this.ser = response
-      console.log(this.ser);
+      this.ser = response;
       this.ser.datos.forEach((element: any) => {
         this.lineChartData?.labels?.push(element.clave);
         this.lineChartData.datasets[0].data.push(element.valor);
