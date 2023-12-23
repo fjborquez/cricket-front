@@ -4,8 +4,8 @@
   <div style="width:400px;">
     <div style="height:432px; padding:0" leaflet [leafletOptions]="this.options" *ngIf="this.options"></div>
     <p>{{ subpanel.descripcion }}</p>
-    <span>Fuentes:</span>
-    <ul>
+    <span *ngIf="fuente">Fuentes:</span>
+    <ul *ngIf="fuente">
       <li>{{ fuente }}</li>
     </ul>
   </div>

@@ -1,5 +1,5 @@
 <mat-card>
-  <mat-card-header>{{ ser.nombre }}</mat-card-header>
+  <mat-card-header>{{ ser?.nombre }}</mat-card-header>
 
   <div *ngFor="let configuracion of serie.configuraciones">
     <div *ngFor="let opcion of configuracion.opciones">
@@ -33,10 +33,10 @@
   </div>
 
   <div style="width:400px">
-    <p>{{ ser.descripcion }}</p>
-    <span>Fuentes:</span>
-    <ul>
-      <li>{{ ser.fuente }}</li>
+    <p>{{ ser?.descripcion }}</p>
+    <span *ngIf="ser?.source">Fuentes:</span>
+    <ul *ngIf="ser?.source">
+      <li>{{ ser?.source }}</li>
     </ul>
   </div>
   <mat-card-actions align="end">

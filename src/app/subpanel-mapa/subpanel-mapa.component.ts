@@ -24,11 +24,12 @@ export class SubpanelMapaComponent {
       response.forEach((point: any, index: any) => {
         if (index == 0) {
           center = new Leaflet.LatLng(point.lat, point.long);
-          this.fuente = point.metadata.find((metadata: any) => {
+          let sourceMetadata =  point.metadata.find((metadata: any) => {
             if (metadata.key == 'source') {
-              return metadata.value;
+              return metadata;
             }
           });
+          this.fuente = sourceMetadata.value;
         }
 
         let marker = new Leaflet.Marker(new Leaflet.LatLng(point.lat, point.long), {
