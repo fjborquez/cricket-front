@@ -40,9 +40,8 @@ export class SubpanelResultadosAnualesComponent implements OnInit {
   ngOnInit(): void {
     this.subpanelService.getSubpanel(this.resultadoAnual.url).subscribe((response: any) => {
       this.res = response;
-      console.log(this.res);
 
-      this.res.forEach((element: any) => {
+      this.res.sort().forEach((element: any) => {
         this.lineChartData?.labels?.push(element.endOfPeriod);
         this.lineChartData.datasets[0].data.push(element.netIncomeLoss);
       })
