@@ -42,6 +42,7 @@ export class SubpanelResultadosAnualesComponent implements OnInit {
       this.res = response;
 
       this.res.reverse().forEach((element: any) => {
+        console.log(this.res.reverse());
         this.lineChartData?.labels?.push(element.endOfPeriod);
         this.lineChartData.datasets[0].data.push(element.netIncomeLoss);
       })
