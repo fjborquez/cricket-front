@@ -16,7 +16,7 @@
       <tr mat-row *matRowDef="let row; columns: ['nombre', 'cargo'];"></tr>
     </table>
   </div>
-  <div style="width:400px">
+  <div style="width:400px" *ngIf="this.insiders">
     <p>{{ insider.descripcion }}</p>
     <span>Fuentes:</span>
     <ul>
