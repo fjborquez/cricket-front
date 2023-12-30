@@ -14,8 +14,7 @@ export class SubpanelResultadosAnualesComponent implements OnInit {
   @Output() removeSubpanelEvent = new EventEmitter<any>()
   res: any = {};
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
-  fuente: string = "SEC - EDGAR"
-
+  fuente: string = ""
 
   public lineChartData: ChartConfiguration<'line'>['data'] = {
     labels: [],
@@ -47,6 +46,7 @@ export class SubpanelResultadosAnualesComponent implements OnInit {
       })
 
       this.chart?.chart?.update();
+      this.fuente = this.res[0].fuente;
     });
   }
 
