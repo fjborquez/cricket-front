@@ -10,8 +10,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 }
 
 .charts-selector-component {
-  padding-left: 1%;
-  padding-bottom: 1%;
+  display: flex;
+  padding: 1%;
 }
 
 .charts-container {
@@ -69,4 +69,9 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .example-spacer {
   flex: 1 1 auto;
+}
+
+mat-card {
+  margin: 5px;
+  padding: 5px;
 }
