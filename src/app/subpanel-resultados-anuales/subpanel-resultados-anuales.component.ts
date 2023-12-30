@@ -46,7 +46,8 @@ export class SubpanelResultadosAnualesComponent implements OnInit {
       })
 
       this.chart?.chart?.update();
-      this.fuente = this.res[0].fuente;
+      console.log(this.res);
+      this.fuente = this.res[0].source;
     });
   }
 
