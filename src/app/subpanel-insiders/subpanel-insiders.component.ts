@@ -10,7 +10,7 @@ import { SubpanelService } from '../subpanel.service';
 export class SubpanelInsidersComponent implements OnInit {
   @Input() insider: any;
   @Output() removeSubpanelEvent = new EventEmitter<any>()
-  fuente: string  = "EDGAR - SEC";
+  fuente: string  = "";
   insiders: any = [];
   dataSource = new MatTableDataSource<any>();
 
@@ -20,6 +20,7 @@ export class SubpanelInsidersComponent implements OnInit {
     this.subpanelService.getSubpanel(this.insider.url).subscribe(response => {
       this.insiders = response;
       this.dataSource = new MatTableDataSource<any>(this.insiders.sort(this.compareByStocks));
+      this.fuente = this.insiders[0]['source'];
     });
   }
 
