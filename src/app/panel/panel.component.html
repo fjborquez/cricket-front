@@ -18,5 +18,6 @@
     <app-subpanel-resultados-anuales *ngIf="subpanel.type === 'resultadoAnual'" [resultadoAnual]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-subpanel-resultados-anuales>
     <app-subpanel-cantidad-puntos-agrupados *ngIf="subpanel.type === 'cantidadPuntosAgrupados'" [subpanel]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-subpanel-cantidad-puntos-agrupados>
     <app-subpanel-mapa *ngIf="subpanel.type === 'mapa'" [subpanel]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)"></app-subpanel-mapa>
+    <app-subpanel-notas *ngIf="subpanel.type === 'note'" [subpanel]="subpanel" (removeSubpanelEvent)="removeSubpanel($event)" ></app-subpanel-notas>
   </div>
 </div>

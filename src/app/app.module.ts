@@ -26,7 +26,7 @@ import { SubpanelInsidersComponent } from './subpanel-insiders/subpanel-insiders
 import { SubpanelResultadosAnualesComponent } from './subpanel-resultados-anuales/subpanel-resultados-anuales.component';
 import { SubpanelPuntosPorEmpresaComponent } from './subpanel-cantidad-puntos-agrupados/subpanel-cantidad-puntos-agrupados.component';
 import { SubpanelMapaComponent } from "./subpanel-mapa/subpanel-mapa.component";
-
+import { SubpanelNotasComponent } from './subpanel-notas/subpanel-notas.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +40,7 @@ import { SubpanelMapaComponent } from "./subpanel-mapa/subpanel-mapa.component";
         SubpanelResultadosAnualesComponent,
         SubpanelPuntosPorEmpresaComponent,
         SubpanelMapaComponent,
+        SubpanelNotasComponent
     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
