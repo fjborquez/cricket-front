@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+
 import { PanelService } from 'app/panel.service';
 
 @Component({
@@ -24,5 +25,6 @@ export class SubpanelNotasComponent implements OnInit {
   save(note: string): void {
     this.note = note;
     this.panelService.addSubpanel(this.subpanel.pivot.panel_id, this.subpanel.id, {note}).subscribe();
+    this.subpanel.pivot.note = note;
   }
 }

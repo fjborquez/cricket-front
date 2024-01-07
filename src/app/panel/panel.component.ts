@@ -57,7 +57,7 @@ export class PanelComponent implements OnInit {
     this.panel.subpaneles = moveItem(this.panel.subpaneles, event.currentIndex, event.previousIndex);
     this.panel.subpaneles.forEach((element: any, index: any) => {
       element.pivot.position = index;
-      this.panelService.addSubpanel(this.panel.id, element.id, {position: index}).subscribe();
+      this.panelService.addSubpanel(this.panel.id, element.id, {position: index, note: element.pivot.note}).subscribe();
     });
   }
 
